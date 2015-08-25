@@ -9,6 +9,7 @@
 
 	<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:config.properties" />
+<!--     <context:property-placeholder location="classpath:context.xml" /> -->
 	<context:annotation-config />
 	<!-- 自动扫描(自动注入) -->
 	<context:component-scan base-package="cn.ssms" />
