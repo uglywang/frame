@@ -3,7 +3,7 @@ package cn.ssms.model;
 public class Role {
     private Integer id;
 
-    private String code;
+    private Integer code;
 
     private String name;
 
@@ -15,12 +15,12 @@ public class Role {
         this.id = id;
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public String getName() {

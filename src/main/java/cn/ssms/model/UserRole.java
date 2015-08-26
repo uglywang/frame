@@ -3,9 +3,9 @@ package cn.ssms.model;
 public class UserRole {
     private Integer id;
 
-    private Integer userId;
+    private Integer userid;
 
-    private Integer roleId;
+    private Integer roleid;
 
     public Integer getId() {
         return id;
@@ -15,19 +15,19 @@ public class UserRole {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
-    public Integer getRoleId() {
-        return roleId;
+    public Integer getRoleid() {
+        return roleid;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setRoleid(Integer roleid) {
+        this.roleid = roleid;
     }
 }

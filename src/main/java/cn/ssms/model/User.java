@@ -9,9 +9,9 @@ public class User {
 
     private Integer age;
 
-    private Date birthday;
-
     private String password;
+
+    private Date birthday;
 
     public Integer getId() {
         return id;
@@ -37,14 +37,6 @@ public class User {
         this.age = age;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -52,7 +44,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
-    public String toString() {
-    	return this.name + ", " + this.age + ", " + this.birthday + ", " + this.password;
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

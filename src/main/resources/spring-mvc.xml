@@ -11,7 +11,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 					http://www.springframework.org/schema/mvc 
 					http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
+	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 ,此处不与springmvc.xml中的scan重复，为什么?-->
 	<context:component-scan base-package="cn.ssms.controller" />
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->

@@ -1,0 +1,12 @@
+<Context>   
+    <Resource name="jdbc/mysqldb" auth="Container"   
+    type="javax.sql.DataSource"  
+    driverClassName="com.mysql.jdbc.Driver"  
+    url="jdbc:mysql://localhost:3306/springmvc"  
+    username="root"  
+    password="123456"  
+    maxWait="10000" />  
+</Context>
+
+<!--     maxActive="50"   -->
+<!--     maxIdle="30"   -->

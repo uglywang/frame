@@ -20,14 +20,13 @@ import cn.ssms.model.User;
 import cn.ssms.realm.ShiroDbRealm;
 import cn.ssms.service.UserService;
 import cn.ssms.util.CipherUtil;
-import cn.ssms.util.EncryptUtils;
 
 @Controller
 public class UserControler {
 	private static Logger logger = LoggerFactory.getLogger(ShiroDbRealm.class);
 	@Autowired
 	private UserService userService;
-	
+
 	/**
 	 * 测试springmvc与mybatis整合成功
 	 * @param id
@@ -41,7 +40,7 @@ public class UserControler {
 		request.setAttribute("user", user);
 		return "showUser";
 	}
-	
+
 	/**
 	 * 跳转至登录页
 	 * @param request
@@ -52,7 +51,7 @@ public class UserControler {
 		logger.debug("来自IP[" + request.getRemoteHost() + "]的访问");
 		return "login";
 	}
-	
+
 	/**
 	 * 登录示例
 	 * @param request
@@ -65,50 +64,66 @@ public class UserControler {
 		String username = request.getParameter("username");
 		//MD5加密
 		String password = CipherUtil.generatePassword(request.getParameter("password"));
+
 		//String password = request.getParameter("password");
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-		
+
 		Subject currentUser = SecurityUtils.getSubject();
 		try {
 			System.out.println("----------------------------");
+		     /*以下为测试代码： ERROR [cn.ssms.realm.ShiroDbRealm]*/
+//	        Integer Int =1;
+//	        UserRole userRole = userService.findUserRoleByUserID(Int);
+//	        System.out.println("RoleId:------"+userRole.getRoleid());
+//	        Role role = userService.findRoleByRoleID(i);
+//	        System.out.println("roleName:------"+role.getName());
+	        /*测试结束*/
+
 			if (!currentUser.isAuthenticated()){
 				token.setRememberMe(true);
 				currentUser.login(token);
 			}
 			System.out.println("result: " + result);
 			result = "index";
+//			if(currentUser.hasRole("admin")){
+//			    System.out.println("-------admin--------");
+//			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			result = "login";
 		}
+//测试代码
+//      Integer Int =1;
+//    UserRole userRole = userService.findUserRoleByUserID(Int);
+//    System.out.println("RoleId:------"+userRole.getRoleid());
 		return result;
 	}
-  
+
     /**
      * 登出
      * @return
      */
-    @RequestMapping(value = "/logout")  
-    @ResponseBody  
-    public String logout() {  
-  
-        Subject currentUser = SecurityUtils.getSubject();  
-        String result = "logout";  
-        currentUser.logout();  
-        return result;  
-    }  
-    
+    @RequestMapping(value = "/logout")
+    @ResponseBody
+    public String logout() {
+
+        Subject currentUser = SecurityUtils.getSubject();
+        String result = "logout";
+        currentUser.logout();
+        return result;
+    }
+
     /**
      * 检查
      * @return
      */
-    @RequestMapping(value = "/chklogin", method = RequestMethod.POST)  
-    @ResponseBody  
-    public String chkLogin() {  
-        Subject currentUser = SecurityUtils.getSubject();  
-        if (!currentUser.isAuthenticated()) {  
-            return "false";  
-        }  
-        return "true";  
-    }  
+    @RequestMapping(value = "/chklogin", method = RequestMethod.POST)
+    @ResponseBody
+    public String chkLogin() {
+        Subject currentUser = SecurityUtils.getSubject();
+        if (!currentUser.isAuthenticated()) {
+            return "false";
+        }
+        return "true";
+    }
 }
